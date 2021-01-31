@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { TweenLite, Power3 } from 'gsap';
+import { gsap } from 'gsap';
 
 import getImgWidthDynamically from "../helper/getImgWithDynamically";
 import { Slider } from './Slider'
@@ -28,39 +28,51 @@ export const SliderContainer = () => {
 
     //Declaring the animation Functions
     const slideLeft = (index, duration, multiplied = 1, imageWidth) => {
-        TweenLite.to(imageList.current.children[index], duration, {
+        gsap.to(imageList.current.children[index], {
+            duration: duration,
             x: -imageWidth * multiplied,
-            ease: Power3.easeout
+            ease: "power3.inOut",
+
         });
-        TweenLite.to(imageList.current.children[index], duration, {
+        gsap.to(imageList.current.children[index], {
+            duration: duration,
             x: -imageWidth * multiplied,
-            ease: Power3.easeout
+            ease: "power3.inOut",
+
         })
     }
     const slideRight = (index, duration, multiplied = 1, imageWidth) => {
-        TweenLite.to(imageList.current.children[index], duration, {
+        gsap.to(imageList.current.children[index],{
+            duration: duration,
             x: imageWidth * multiplied,
-            ease: Power3.easeout
+            ease: "power3.inOut",
+
         });
-        TweenLite.to(imageList.current.children[index], duration, {
+        gsap.to(imageList.current.children[index], {
+            duration: duration,
             x: imageWidth * multiplied,
-            ease: Power3.easeout
+            ease: "power3.inOut",
+
         })
     }
     const scale = (index, duration) => {
-        TweenLite.from(imageList.current.children[index], duration, {
+        gsap.from(imageList.current.children[index], {
+            duration: duration,
             scale: 1.2,
-            ease: Power3.easeout
+            ease: "power3.inOut",
+
         });
     }
     const fadeOut = (index, duration) => {
-        TweenLite.to(testimonialList.current.children[index], duration, {
-            opacity: 0
+        gsap.to(testimonialList.current.children[index], {
+            duration: duration,
+            alpha: 0
         });
     }
     const fadeIn = (index, duration) => {
-        TweenLite.to(testimonialList.current.children[index], duration, {
-            opacity: 1,
+        gsap.to(testimonialList.current.children[index], {
+            duration: duration,
+            alpha: 1,
             delay: 1
         });
     }
@@ -202,11 +214,10 @@ export const SliderContainer = () => {
 
     //Making the first child visible in first render
     useEffect(() => {
-        TweenLite.to(testimonialList.current.children[0], 0, {
-            opacity: 1
+        gsap.to(testimonialList.current.children[0], {
+            duration: 1,
+            alpha: 1
         });
-        return () => {
-        }
     }, []);
 
     return (
