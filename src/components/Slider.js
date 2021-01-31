@@ -18,7 +18,7 @@ export const Slider = ({ imageList ,testimonialList, nextSlide, prevSlide, state
                     onClick={ prevSlide }
                     className='arrows left'>
                     <span>
-                        <img src={ leftArrow } alt="Left Arrow" />
+                        <img src={ '' + leftArrow } alt="Left Arrow" />
                     </span>
                 </div>
 
@@ -29,13 +29,13 @@ export const Slider = ({ imageList ,testimonialList, nextSlide, prevSlide, state
                         >
                             <li
                                 className={ state.isActive1 ? 'active' : '' }
-                            ><img src={ testimonials[0].image} alt={testimonials[0].name + " image"} /></li>
+                            ><img src={ '' + testimonials[0].image} alt={testimonials[0].name + " image"} /></li>
                             <li
                                 className={ state.isActive2 ? 'active' : ''}
-                            ><img src={ testimonials[1].image} alt={testimonials[1].name + " image"} /></li>
+                            ><img src={ '' + testimonials[1].image} alt={testimonials[1].name + " image"} /></li>
                             <li
                                 className={ state.isActive3 ? 'active' : ''}
-                            ><img src={ testimonials[2].image} alt={testimonials[2].name + " image"} /></li>
+                            ><img src={ '' + testimonials[2].image} alt={testimonials[2].name + " image"} /></li>
                         </ul>
                     </div>
                     <div className="t-content">
@@ -78,7 +78,7 @@ export const Slider = ({ imageList ,testimonialList, nextSlide, prevSlide, state
                     onClick={ nextSlide }
                     className='arrows right'>
                     <span>
-                        <img src={  rightArrow } alt="right Arrow" />
+                        <img src={ '' + rightArrow } alt="right Arrow" />
                     </span>
                 </div>
             </div>
